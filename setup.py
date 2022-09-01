@@ -5,7 +5,7 @@ current = os.getcwd()
 
 setup(
     name='FairQt',
-    version='1.0.0',
+    version='1.2.0',
     description='pyQt6 plus Qt Designer Support Framework',
     url='https://github.com/chazzcoin/FairQt',
     author='ChazzCoin',
@@ -16,7 +16,7 @@ setup(
     package_data={
         'FQt': ['FTemplates/*.ui']
     },
-    install_requires=['fcore>=4.0.0'],
+    install_requires=['faircore>=1.0.0', 'pyqt6'],
     classifiers=[
         'Development Status :: 1 - Planning',
         'Intended Audience :: Science/Research',

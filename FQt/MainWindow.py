@@ -10,16 +10,16 @@ from .FTemplates import DEFAULT_TEMPLATE
     : Action Function -> onClick_btnSearch
 """
 
-VIEW_ELEMENTS = [ "Button", "List", "CheckBox", "Edit", "" ]
+VIEW_ELEMENTS = ["Button", "List", "CheckBox", "Edit", ""]
 LISTENER_TYPES = {
-                    "onClick_": "clicked",
-                    "onDoubleClick_": "itemDoubledClicked",
-                    "onReleased_": "released",
-                    "onToggled_": "toggled",
-                    "onStateChanged": "stateChanged",
-                    "onTextChanged_": "textChanged",
-                    "onValueChanged": "valueChanged"
-                 }
+    "onClick_": "clicked",
+    "onDoubleClick_": "itemDoubledClicked",
+    "onReleased_": "released",
+    "onToggled_": "toggled",
+    "onStateChanged": "stateChanged",
+    "onTextChanged_": "textChanged",
+    "onValueChanged": "valueChanged"
+}
 
 
 def launchUI(windowObj):
@@ -28,19 +28,22 @@ def launchUI(windowObj):
     window = windowObj()
     sys.exit(app.exec())
 
+
 LISTENER = lambda listenerType, funcName: f"{listenerType}{funcName}"
 
-class FairUI(QtWidgets.QDialog, FairClass):
+
+class FairMainWindow(QtWidgets.QMainWindow, FairClass):
     ui = None
 
     def __init__(self):
-        super(FairUI, self).__init__()
+        super(FairMainWindow, self).__init__()
 
     def bind_ui(self, uiFilePath=DEFAULT_TEMPLATE):
         self.ui = uic.loadUi(uiFilePath, self)
         self.binder()
 
     """ Core View Bindings """
+
     def binder(self):
         """ AutoMagically binds View Elements from ui file. """
         for item in DICT.yieldThis(self.ui.__dict__):
@@ -80,8 +83,8 @@ class FairUI(QtWidgets.QDialog, FairClass):
             except:
                 continue
 
-
     """ Action Examples """
+
     def onClick_ButtonName(self, item):
         """ onClick_ButtonName(item) """
         pass
