@@ -5,7 +5,7 @@ current = os.getcwd()
 
 setup(
     name='FairQt',
-    version='1.2.0',
+    version='2.0.0',
     description='pyQt6 plus Qt Designer Support Framework',
     url='https://github.com/chazzcoin/FairQt',
     author='ChazzCoin',
